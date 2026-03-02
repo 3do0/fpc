@@ -499,7 +499,7 @@ document.getElementById('nextBtn').innerHTML=isRTL?arrL+' '+lang.next:lang.next+
 document.getElementById('navHint').textContent=lang.navHint;
 var html='';lang.slides.forEach(function(s,i){html+=renderSlide(s,i)});
 document.getElementById('deck').innerHTML=html;
-document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('onclick').indexOf(curLang)!==-1)});
+document.querySelectorAll('.lang-btn').forEach(function(b){var on=b.getAttribute('onclick').indexOf(curLang)!==-1;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false')});
 showSlide(curSlide);
 }
 function showSlide(n){
