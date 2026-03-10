@@ -511,7 +511,7 @@ document.getElementById('progressBar').style.width=((n+1)/total*100)+'%';
 }
 function go(d){showSlide(curSlide+d)}
 function setLang(l){curLang=l;curSlide=0;render()}
-document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(document.body.dir==='rtl'?-1:1);if(e.key==='ArrowLeft')go(document.body.dir==='rtl'?1:-1)});
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(document.body.dir==='rtl'?-1:1);if(e.key==='ArrowLeft')go(document.body.dir==='rtl'?1:-1);if(e.key==='Home')showSlide(0);if(e.key==='End')showSlide(total-1)});
 var tx=0;
 document.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
 document.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){var r=document.body.dir==='rtl';go(dx<0?(r?-1:1):(r?1:-1))}},{passive:true});
